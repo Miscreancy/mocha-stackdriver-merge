@@ -1,6 +1,6 @@
 {
   "name": "mocha-stackdriver-merge",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Mocha report merger to log total test results and stats with Google Cloud Logging API",
   "main": "src/main.js",
   "bin": {
@@ -26,7 +26,7 @@
     "mocha": "^7.1.2"
   },
   "dependencies": {
-    "@google-cloud/logging": "^7.3.0",
+    "@google-cloud/logging": "^9.1.0",
     "fs-extra": "^9.1.0",
     "yargs": "^16.2.0"
   },
