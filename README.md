@@ -10,7 +10,7 @@ Merge tool to be used with .json files generated with [mocha-stackdriver-reporte
 ## Usage
 
 ```bash
-npx [path-to-reports]/[report_prefix]_*.json [-o/--output [path-to-output-file]/[output_filename].json -n/--no-cloud -s/--stats ["duration", "passes"] ]
+npx [path-to-reports]/[report_prefix]_*.json [-o/--output [path-to-output-file]/[output_filename].json -n/--no-cloud ]
 ```
 
 By default, it does not write a file, and instead submits the merged object to the cloud logger with the details in the file.
