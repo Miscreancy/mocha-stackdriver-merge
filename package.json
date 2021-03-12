@@ -1,0 +1,36 @@
+{
+  "name": "mocha-stackdriver-merge",
+  "version": "0.0.2",
+  "description": "Mocha report merger to log total test results and stats with Google Cloud Logging API",
+  "main": "src/main.js",
+  "bin": {
+    "mocha-stackdriver-merge": "src/cli.js"
+  },
+  "author": "Torran Turner <tor.turner@a1comms.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miscreancy/mocha-stackdriver-merge/issues"
+  },
+  "homepage": "https://github.com/miscreancy/mocha-stackdriver-merge",
+  "keywords": [
+    "mocha",
+    "stackdriver",
+    "reporter",
+    "merge",
+    "json"
+  ],
+  "files": [
+    "src"
+  ],
+  "devDependencies": {
+    "mocha": "^7.1.2"
+  },
+  "dependencies": {
+    "@google-cloud/logging": "^7.3.0",
+    "fs-extra": "^9.1.0",
+    "yargs": "^16.2.0"
+  },
+  "peerDependencies": {
+    "mocha": "^6"
+  }
+}
