@@ -91,8 +91,6 @@ function mergeFileData(files, statsArray) {
     }
   }
 
-  console.log(newFileObj)
-
   files.forEach( file => {
     const report = fs.readJSONSync(file)
     if (report.data.suite) { newFileObj.suites.push(report.data.suite)}
