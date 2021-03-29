@@ -121,6 +121,12 @@ function mergeFileData(files, statsArray) {
         if (!newFileObj.stats[stat]) {
           newFileObj.stats[stat] = false
         }
+      } else if (stat == 'skipped') {
+        if (!newFileObj.stats.skipped) {
+          newFileObj.stats.skipped = report.data.stats.skipped
+        } else {
+          newFileObj.stats.skipped = newFileObj.stats.skipped + report.data.stats.skipped
+        }
       } else {
         if (!newFileObj.stats[stat]) {
           newFileObj.stats[stat] = report.data.stats[stat]
@@ -130,7 +136,9 @@ function mergeFileData(files, statsArray) {
       }
 
     })
-
+  if (newFileObj.stats.tests) {
+    newFileObj.stats.tests = newFileObj.stats.passes + newFileObj.stats.failures + newFileObj.stats.other + newFileObj.stats.skipped
+  }
   if (newFileObj.stats.passPercent) {
     newFileObj.stats.passPercent = newFileObj.stats.passes/newFileObj.stats.tests * 100
   }
@@ -138,10 +146,17 @@ function mergeFileData(files, statsArray) {
     newFileObj.stats.pendingPercent = newFileObj.stats.pending/newFileObj.stats.tests * 100
   }
   if (newFileObj.stats.other > 0 ) {
-    newFileObj.stats.hasOther = true
+    if (!newFileObj.stats.failures) {
+      newFileObj.stats.failures = newFileObj.stats.other
+      newFileObj.stats.other = 0
+    } else {
+      newFileObj.stats.failures = newFileObj.stats.failures + newFileObj.stats.other
+      newFileObj.stats.other = 0
+    }
+    newFileObj.stats.hasOther = false
   }
   if (newFileObj.stats.skipped > 0) {
-    newFileObj.stats.skipped = true
+    newFileObj.stats.hasSkipped = true
   }
 })
 return newFileObj
